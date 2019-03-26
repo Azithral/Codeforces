@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <deque>
+#include <functional>
+#include <list>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+#define fi           first
+#define se           second
+#define pb           push_back
+#define INF          1000000000
+#define ll           long long
+#define vi           vector<int>
+#define vit          vector<int>::iterator
+#define pii          pair<int,int>
+#define FOR(a,b,c)   for(int a=b;a<c;a++)
+#define REP(i,n)     FOR(i,0,n)
+
+
+ll No_luckydigits(string a)
+{
+    ll count1 =0;
+    REP(i,a.length())
+    {
+        if(a[i] == '4' || a[i] == '7')
+        {
+            count1++;
+        }
+    }
+    return count1;
+}
+
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    ll count2 =0;
+    REP(i,n)
+    {
+        string a;
+        cin>>a;
+        if(k>=No_luckydigits(a))
+        {
+            count2++;
+        }
+        
+    }
+
+    cout<<count2<<endl;
+
+
+}
