@@ -1,0 +1,84 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <deque>
+#include <functional>
+#include <list>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <vector>
+#include<algorithm>
+
+using namespace std;
+
+#define fi           first
+#define se           second3
+#define pb           push_back
+#define INF          1000000000
+#define ll           long long
+#define vi           vector<int>
+#define vit          vector<int>::iterator
+#define pii          pair<int,int>
+#define FOR(a,b,c)   for(int a=b;a<c;a++)
+#define REP(i,n)     FOR(i,0,n)
+
+
+ int min_element_location(int arr[],int x)
+ {  
+    static int m = 0;
+    m = *min_element(arr , arr + x);
+    REP(i,x)
+    {
+        if(m == arr[i])
+        {
+            return i;
+        }
+    }
+ }
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n],b[n];
+    int sum1 = 0;
+    int sum2 = 0;
+    char c[n];
+
+    REP(i,n)
+    {
+        cin>>a[i]>>b[i];    }
+
+    REP(i,n)
+    {
+        if(abs(sum1  + a[i] - sum2)<= 500)
+        {
+            c[i] = 'A';
+            sum1 = sum1 + a[i];
+        }
+        else
+        {
+            c[i] = 'G';
+            sum2 = sum2 + b[i];
+        }
+    }
+
+    if(abs(sum1 - sum2) > 500)
+    {
+        cout<<-1<<endl;
+        return 0;
+    }
+
+    REP(i,n)
+    {
+        cout<<c[i];
+    }
+
+
+}
